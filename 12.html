@@ -1,0 +1,126 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>进出校</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scala=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<style>
+		
+		button{
+			align-items: center;
+			background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+			 background-blend-mode: normal, lighten, soft-light;
+			
+			    color: white !important;
+			    font-size: 18px;
+			    height: 66px;
+				width: 100px;
+				display:block;
+				margin:0 auto;
+				border-radius: 10px;
+				border: 0px;
+		}
+		</style>
+	</head>
+	<body style='margin-top: 50px; background-color1:#DFE8F6;;height:100%;' >
+		<a>
+		 <button onclick="window.location.href='0520/xinj.html'">进校（新）</button>
+		 </a>
+		 <br />
+		 <br />
+		 
+		  <br />
+		  <a>
+		   <button onclick="window.location.href='0520/xinc.html'">离校（新）</button>
+		   </a>
+	</body>
+</html>
+<!-- <script>
+		window.location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx85fc4916842bb0d4&redirect_uri=http%3A%2F%2Fwx.ccdgut.edu.cn%2Fccdgutwx%2Fjinchuxiao%2Fjinxiao.jsp%3Fjinchuleixing%3D2&response_type=code&scope=snsapi_userinfo&state=#wechat_redirect'
+		</script> -->
+<script type="text/javascript" src="http://wx.ccdgut.edu.cn:80/ccdgutwx//js/jquery-1.7.2.min.js"></script>
+<script>
+	Vue.config.productionTip = false
+	    new Vue({
+	        el:'#app',
+	        data:{
+	            name:'',
+	        }
+	    })
+		$(document).mouseup(function (e) {
+		    var _con = $(".app1"); // 设置目标区域
+		    if(!_con.is(e.target) && _con.has(e.target).length === 0){
+		        $(".app1").hide();
+		    }
+		});
+	Date.prototype.format = function(format) {
+		var o = {
+			"M+": this.getMonth() + 1, //month
+			"d+": this.getDate(), //day
+			"h+": this.getHours(), //hour
+			"m+": this.getMinutes(), //minute
+			"s+": this.getSeconds(), //second
+			"q+": Math.floor((this.getMonth() + 3) / 3), //quarter
+			"S": this.getMilliseconds() //millisecond
+		}
+		if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+			(this.getFullYear() + "").substr(4 - RegExp.$1.length));
+		for (var k in o)
+			if (new RegExp("(" + k + ")").test(format))
+				format = format.replace(RegExp.$1,
+					RegExp.$1.length == 1 ? o[k] :
+					("00" + o[k]).substr(("" + o[k]).length));
+		return format;
+	}
+
+	// $.getJSON("http://wx.ccdgut.edu.cn:218/ccdgutwx/jinchuxiao/dy!newjinchu.action?xuehao=csxyugpoqkbhkj&jinchuleixing=2",
+	// 	function(data) {
+	// 		console.log(data)
+			// data=eval( "("+data+")"  );
+
+			// if( data && data.id && data.message.indexOf("不通过")==-1 ){
+
+			//  $("#myimg").attr("src","http://wx.ccdgut.edu.cn:80/ccdgutwx//images/right2.png")
+
+			// }else {
+
+			//  $("#myimg").attr("src","http://wx.ccdgut.edu.cn:80/ccdgutwx//images/error2.png")
+
+			// }
+
+			// $("#mymessage").html("出校：学生：" + data.name + "，白名单验证通过，该申请离校扫码1次，离校码只能使用一次，请不要重复打开");
+		// })
+
+
+
+
+
+
+
+	$(function() {
+
+
+		$(".bar-body").css("left", ($(window).width() - $(".bar-body").width()) / 2 + "px");
+
+		setTimeout("shuaxin()", 1000 * 55);
+
+		shijiandiv();
+
+
+
+		// $(".yuekangmadiv").height( $(window).height()/5 );
+
+	});
+
+	function shijiandiv() {
+		//  $(".shijiandiv").html(  new Date().format('hh:mm:ss S') );
+		$(".shijiandiv").html(new Date().format('MM-dd hh:mm:ss.S'));
+
+		setTimeout("shijiandiv()", 100);
+	}
+</script>
