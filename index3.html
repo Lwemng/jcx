@@ -1,43 +1,45 @@
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-		<title>进出校</title>
+		<title>出校</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport"
 			content="width=device-width, initial-scala=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
 		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-		<style>
-		
-		button{
-			align-items: center;
-			background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
-			 background-blend-mode: normal, lighten, soft-light;
-			
-			    color: white !important;
-			    font-size: 18px;
-			    height: 66px;
-				width: 100px;
-				display:block;
-				margin:0 auto;
-				border-radius: 10px;
-				border: 0px;
-		}
-		</style>
 	</head>
-	<body style='margin-top: 50px; background-color1:#DFE8F6;;height:100%;' >
-		<a>
-		 <button onclick="window.location.href='0520/xinj.html'">进校（新）</button>
-		 </a>
-		 <br />
-		 <br />
-		 
-		  <br />
-		  <a>
-		   <button onclick="window.location.href='0520/xinc.html'">离校（新）</button>
-		   </a>
+	<body style='background-color1:#DFE8F6;;height:100%'>
+
+		<center id="app">
+				<div class="app1">
+					<span>输入“姓名-学号”后点空白区域</span>
+				<input  type="text" v-model="name" placeholder="姓名-学号">
+				</div>
+			<table>
+				<tr>
+					<td align="center"><img src="http://wx.ccdgut.edu.cn:80/ccdgutwx//images/right2.png" id='myimg'
+							height='120px' style='margin-top:50px'></td>
+				</tr>
+				<tr>
+					<td align="center">
+						<br /><br />
+						<div class='shijiandiv'
+							style='font-size:35px;align-items: center;justify-content: center;display: flex;text-align: center; color: red;width:220px;background-color1: #E9F1F6;height1:50px;border-radius: 10px'>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						 <br /><br />
+						<div id='mymessage' style='font-size:35px' >
+							出校：学生：{{name}}，白名单验证通过，该申请离校扫码1次，离校码只能使用一次，请不要重复打开
+						</div>
+					</td>
+				</tr>
+			</table>
+		</center>
+
 	</body>
 </html>
 <!-- <script>
