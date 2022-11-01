@@ -1,138 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scala=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/campus_card.css">
+		<meta name="viewport"
+			content="width=device-width, initial-scala=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./css/campus_card.css">
 		<title>进校</title>
-		<script type="text/javascript" src="http://wx.ccdgut.edu.cn:80/ccdgutwx//js/jquery-1.7.2.min.js"></script>
+
 
 		<!--  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script> -->
-		<script src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+		<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script> -->
 
+		<!-- <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script> -->
+<!-- 		  <script type="text/javascript" src="https://wx.ccdgut.edu.cn/ccdgutwx//js/JsBarcode/JsBarcode.all.js"></script>
+    <script src="https://wx.ccdgut.edu.cn/ccdgutwx//js/toastjs/js/component_f15.js" charset="UTF-8"></script> -->
 
-
-		<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="http://wx.ccdgut.edu.cn:80/ccdgutwx//js/JsBarcode/JsBarcode.all.js"></script>
-		<script src="http://wx.ccdgut.edu.cn:80/ccdgutwx//js/toastjs/js/component_f15.js" charset="UTF-8"></script>
 
 		<style>
+			.upload {
+				width: 80px;
+				height: 20px;
+				background-color: rgba(135, 206, 235, 0.2);
+				border: 1px dashed black;
+				border-radius: 5px;
+				position: relative;
 
+			}
+
+			.upload:hover {
+				background-color: rgba(135, 206, 235, 1);
+			}
+
+			.upload::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				content: '上传图片';
+				font-size: 13px;
+				text-align: center;
+				font-family: 'fangsong';
+				line-height: 20px;
+				user-select: none;
+			}
+
+			#file {
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+			}
 		</style>
 
+
 		<script>
-			var toast = new ToastClass();
-			let myconfirm = new ConfirmClass();
+			// var toast = new ToastClass();
+			// let myconfirm = new ConfirmClass();
 		</script>
 	</head>
 
-	<body style='font-family: "微软雅黑";'>
-		<div>
-			<div class='yuekangmadiv' style='width:100%;text-align: center;vertical-align: middle;border: 1px solid #DEB052;height:140px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
-				<div style='font-size: 23px;color:white;position: relative; '>进校 </div>
-
-
+	<body style='font-family: STKaiti;'>
+		<center>
+		<div class="app1">
+				<br />
+				<span>上传图片后点空白区域</span>
+				<div class="upload1">
+					<button type="button" class="btn btn-primary" id="btn" >上传图片</button>
+					<!-- // 用于上传文件 -->
+					 <input class="file-upload" style="display: none;" type="file" accept="image/*" name="picture"/> 
+				</div>
+				</div>
+				</centen>
+		<div style=" position: relative;">
+			<div class="bar-primary" style="position: absolute;background-color:#438557">
+				<div class="bar-heading">
+					<div class="bar-title" style='font-size: 1.25rem;color:'>进校
+						<span class="pull-left bar-return" style="opacity: 0.7;"></span>
+						<span class="pull-right bar-question"></span>
+					</div>
+				</div>
 			</div>
-			<br />
-			<table style='width:100%'>
-				<tr>
-					<td>
-						<br />
-					</td>
-				</tr>
-				<tr>
-					<td align="center">
-						<div style="font-size: 30px;">进校白名单验证通过</div>
-						<div class='shijiandiv' style='font-size:30px;align-items: center;justify-content: center;display: flex;text-align: center; color: black;width:220px;background-color1: #E9F1F6;height1:50px;border-radius: 10px'>
+			<div class="bar-body11" style="position: absolute;width:100%">
+				<div class="rectangle">
+					<div class="oval" v-for="(item,index) in list" :key="index" style='background11: url(
+) no-repeat scroll 0 transparent; '><img id="picture" src="" style='width:100px'> </div>
+					
+			</div>
+					<center>
+
+						<br /><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+						<div id='mymessage' style='font-size:25px;position: absolute;'>进校白名单验证通过</div>
+
+
+						<div class='shijiandiv'
+							style='position: absolute;font-size:25px;align-items: center;justify-content: center;display: flex;text-align: center; color: black;width:250px;background-color1: #E9F1F6;height1:50px;border-radius: 10px'>
 						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<br />
-					</td>
-				</tr>
-				<tr >
-					<td align="center" >
-						<img src="http://wx.ccdgut.edu.cn:80/ccdgutwx//images/right2.png" id='myimg' height='100px'
-						 style='margin: 40px;position:absolute;z-index: 1;'>
-						 
-						 <img src1='http://wx.ccdgut.edu.cn:80/ccdgutwx//uploadFile/2022103113/123.jpg' src="data:image/jpeg;base64,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"
-						  width='160px' onclick='$(".tiaoxingma").show()' style='border-style: dashed;border-color: #DEB052;padding:3px'>
-						 </td>
-				</tr>
-				<tr>
-					<td align=center>
-						<div style='width:160px;background-color: #EDF6F1;color:#4C8E51'>粤&nbsp;康&nbsp;码&nbsp;绿&nbsp;码</div>
-					</td>
-					</tr>
-			</table>
+						<br /> <br /><br /><br /><br /><br /><br />
+						<img src="" id='myimg' height='100px' style='margin-top:10px'>
+					</center>
+				</div>
+			</div>
 
-			
+			<br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-		
+			<center>
 
 
 
+				<img src1='https://wx.ccdgut.edu.cn/ccdgutwx//uploadFile/202210160116/.jpg'
+					src="data:image/jpeg;base64,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"
+					width='160px' onclick='$(".tiaoxingma").show()'
+					style='border-style: dashed;border-color: #DEB052;padding:3px'>
 
-			<div style='height:1px;width:100%;border-top: 1px solid #ddd;margin-top:10px;margin-bottom:10px '></div>
 
-			<table style='width:100%'>
-				<tr>
-					<td style="width:30%">
-						<div class='yuekangmadiv' style=';width:90%;text-align: center;vertical-align: middle;;border: 1px solid #DEB052;border-radius: 8px;padding: 3px;height:90px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
-							<div style='font-size: 15px;color:white;position: relative; '>新冠疫苗 </div>
-							<div style='font-size: 18px;color:#DEB052;position: relative;bottom: -10px;font-weight:bold'>
-								已全程接种
+				<div style='width:160px;background-color: #EDF6F1;color:#4C8E51'>粤&nbsp;康&nbsp;码&nbsp;绿&nbsp;码</div>
+
+
+				<div style='height:1px;width:100%;border-top: 1px solid #ddd;margin-top:10px;margin-bottom:10px '>
+				</div>
+
+				<table style='width:100%'>
+					<tr>
+						<td style="width:30%">
+							<div class='yuekangmadiv'
+								style=';width:90%;text-align: center;vertical-align: middle;;border: 1px solid #DEB052;border-radius: 8px;padding: 3px;height:90px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
+								<div style='font-size: 15px;color:white;position: relative; '>新冠疫苗 </div>
+								<div
+									style='font-size: 18px;color:#DEB052;position: relative;bottom: -10px;font-weight:bold'>
+									已全程接种
+
+								</div>
 
 							</div>
-
-						</div>
-					</td>
+						</td>
 
 
-					<td style="width:30%" onclick='updateyuekangma()'>
-						<div class='yuekangmadiv' style=';width:90%;text-align: center;vertical-align: middle;;border: 1px solid  #DEB052;border-radius: 8px;padding: 3px;height:90px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
-							<div style='font-size: 15px;color:white;position: relative; '>核酸检测 </div>
-							<div style='color:#DEB052;position: relative;bottom11: 20px;font-weight:bold;font-size:25px;margin-top:10px'>
-								<center>
+						<td style="width:30%" onclick='updateyuekangma()'>
+							<div class='yuekangmadiv'
+								style=';width:90%;text-align: center;vertical-align: middle;;border: 1px solid  #DEB052;border-radius: 8px;padding: 3px;height:90px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
+								<div style='font-size: 15px;color:white;position: relative; '>核酸检测 </div>
+								<div
+									style='color:#DEB052;position: relative;bottom11: 20px;font-weight:bold;font-size:25px;margin-top:10px'>
+									<center>
 
-									<table>
-										<tr>
-											<td rowspan="2">
-												<div style='font-size: 40px;'>24</div>
-											</td>
-											<td>
-												<div style='font-size:16px'>小时</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div style='font-size:16px'>阴性</div>
-											</td>
-										</tr>
-									</table>
+										<table>
+											<tr>
+												<td rowspan="2">
+													<div style='font-size: 40px;'>24</div>
+												</td>
+												<td>
+													<div style='font-size:16px'>小时</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div style='font-size:16px'>阴性</div>
+												</td>
+											</tr>
+										</table>
 
 
-								</center>
+									</center>
+								</div>
+								<div
+									style='color:white;font-size: 15px;color:while;position: relative;bottom1: -10px;margin-top:10px;display:none'>
+									2022-10-2
+								</div>
 							</div>
-							<div style='color:white;font-size: 15px;color:while;position: relative;bottom1: -10px;margin-top:10px;display:none'>
-								2022-10-2
-							</div>
-						</div>
-					</td>
+						</td>
 
-					<td style="width:30%" onclick='tohangchengka()'>
-						<div class='yuekangmadiv' style=';width:90%;text-align: center;vertical-align: middle;;border: 1px solid #DEB052;border-radius: 8px;padding: 3px;height:90px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
-							<div style='font-size: 16px;color:#DEB052;position: relative;bottom11: -10px;font-weight:bold;vertical-align: middle;margin-top:10px;color:white'>
-								<img src="http://wx.ccdgut.edu.cn:80/ccdgutwx//images/jiantou.png"><br />
-								行程卡
+						<td style="width:30%" onclick='tohangchengka()'>
+							<div class='yuekangmadiv'
+								style=';width:90%;text-align: center;vertical-align: middle;;border: 1px solid #DEB052;border-radius: 8px;padding: 3px;height:90px;background-color: #438557;background1:-webkit-gradient(linear, 0 0, 0 100%, from(#438557), to(#BBF2D8));'>
+								<div
+									style='font-size: 16px;color:#DEB052;position: relative;bottom11: -10px;font-weight:bold;vertical-align: middle;margin-top:10px;color:white'>
+									<img src1="https://wx.ccdgut.edu.cn/ccdgutwx//images/jiantou.png"
+										src="https://wx.ccdgut.edu.cn/ccdgutwx//images/arrow2.png"><br />
+									行程卡
+								</div>
 							</div>
-						</div>
 		</div>
 		</td>
 		</tr>
 		</table>
+
+
+
+
+
+
 
 		<center>
 
@@ -141,48 +198,109 @@
 
 
 
-			<!-- <font style='font-size: 0.9rem;color:#438658;text-shadow:-1px 0 white,0 1px white,1px 0 white,0 -1px white;'>虚拟校园卡已经与粤康码平台数据对接</font> -->
-
 
 		</center>
 
 		<br />
 
-		
+		<img src111='https://wx.ccdgut.edu.cn/ccdgutwx//uploadFile/2022102116/.jpg'
+			src="data:image/jpeg;base64,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"
+			style='display:none' width='200px' class='tiaoxingma'>
+		</center>
+
+
+
+
 
 		<center style='display:none'><img id="barcode5" /></center>
-		<script>
-			$(function() {
-				//JsBarcode("#barcode5", "",{displayValue:true,fontSize:20, height:"100px"});
-			})
-		</script>
+		<!--    <script>
+     //    $(function(){
+					// 	// JsBarcode("#barcode5", "",{displayValue:true,fontSize:20, height:"100px"});
+					// })
+					 
+    </script> -->
 
 		</div>
 
 		</div>
 
-		<!-- 
-		<audio id='player_heyanchenggong' controls='controls' style='display:none'>
-			<source src='http://wx.ccdgut.edu.cn:80/ccdgutwx//jinchuxiao/heyanchenggong.mp3' /></audio>
+
+		<!-- <audio id='player_heyanchenggong' controls='controls' style='display:none'>
+			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/heyanchenggong.mp3' />
+		</audio>
 		<audio id='player_heyanchenggshengqi' controls='controls' style='display:none'>
-			<source src='http://wx.ccdgut.edu.cn:80/ccdgutwx//jinchuxiao/heyanchenggshengqi.mp3' /></audio>
+			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/heyanchenggshengqi.mp3' />
+		</audio>
 
 		<audio id='player_dengjichenggong' controls='controls' style='display:none'>
-			<source src='http://wx.ccdgut.edu.cn:80/ccdgutwx//jinchuxiao/dengjichenggong.mp3' /></audio>
+			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/dengjichenggong.mp3' />
+		</audio>
 
 		<audio id='player_butongguo' controls='controls' style='display:none'>
-			<source src='http://wx.ccdgut.edu.cn:80/ccdgutwx//jinchuxiao/butongguo.mp3' /></audio>
+			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/butongguo.mp3' />
+		</audio>
 
 		<audio id='player_saomashibai' controls='controls' style='display:none'>
-			<source src='http://wx.ccdgut.edu.cn:80/ccdgutwx//jinchuxiao/saomashibai.mp3' /></audio>
- -->
+			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/saomashibai.mp3' />
+		</audio> -->
+
 	</body>
+
 </html>
 
 
 
-
+<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
 <script>
+	 // Vue.config.productionTip = false
+	// new Vue({
+	// 	el: '',
+	// 	data: {
+	// 		list: []
+	// 	},
+	// 	methods: {
+	// 		upload(e) {
+	// 			for (let item of e.target.files) {
+	// 				if (!/image\/\w+/.test(item.type)) {
+	// 					alert("只能选择图片");
+	// 					return;
+	// 				}
+	// 				var _this = this;
+	// 				let reader = new FileReader();
+	// 				reader.readAsDataURL(item);
+	// 				reader.addEventListener('load', function() {
+	// 					_this.list.push(this.result)
+	// 				})
+	// 			}
+	// 		}
+	// 	}
+	// });
+	$(document).on("click", "#btn", function () {
+	    // 点击图片的同时，点击上传文件的input
+	    $('.file-upload').click();
+		// 将上传的图片显示到页面上
+	    $(document).on("change", ".file-upload", function () {
+	        var fileObj = $(".file-upload")[0];
+	        var img = document.getElementById('picture'); //获得用户上传的图片节点
+	        var reader = new FileReader();
+	        // 转换成功后的操作，img.src即为转换后的DataURL
+	        reader.onload = function(e) {
+	            if (reader.readyState === 2) { //加载完毕后赋值
+	                img.src = e.target.result;
+	                console.log(img.src);
+	            }
+	        }
+	        reader.readAsDataURL(fileObj.files[0]);
+	    });
+	});
+	$(document).mouseup(function(e) {
+		var _con = $(".app1"); // 设置目标区域
+		if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+			$(".app1").hide();
+		}
+	});
+
+
 	Date.prototype.format = function(format) {
 		var o = {
 			"M+": this.getMonth() + 1, //month
@@ -203,47 +321,64 @@
 		return format;
 	}
 
+	$("#myimg").attr("src", "https://wx.ccdgut.edu.cn/ccdgutwx//images/right2.png");
+
+
+	$("#jinchuleixingstr").html("进校");
+
+	$("#mymessage").html("进校白名单验证通过");
 
 
 
-	// function updateyuekangma(){
+	$(".shijiandiv").css("top", $("#mymessage").position().top + $("#mymessage").height() + "px");
 
-	//  toast.show({
-	//      loading: true,
-	//      onShow: function(){ 
+	$(".shijiandiv").css("left", ($(window).width() - $(".shijiandiv").width()) / 2 + "px");
 
-	//      }
-	//    })
-
-	//  $.ajax({
-	//   url:"http://wx.ccdgut.edu.cn:80/ccdgutwx//weixinAction/dy!updateYuekangma.action?xuehao=",
-	//   success:function(){
-
-	// 	  setTimeout("shuaxin()",  1000*2 );
-	// 	  //shuaxin();
-	//   }	  
-	//  })
-	// }
-
-
-	//  $(function(){
-	//  // alert(1);
+	$("#mymessage").css("left", ($(window).width() - $("#mymessage").width()) / 2 + "px");
 
 
 
-	//  /*  $(".bar-primary").height( $(window).height()/4+30 );
 
-	//   $(".bar-body").height( $(window).height()/4 );
 
-	//   $(".bar-body").width( $(window).width()/5*3 ); */
+	 
 
-	//   $(".bar-body").css( "left",($(window).width()-$(".bar-body").width())/2+"px" );
 
-	//   setTimeout("shuaxin()",  1000*55 );
 
-	//   shijiandiv();
+	function tohangchengka() {
+		try {
+			wx.miniProgram.navigateTo({
+				url: '/pages/tohangchengka/tohangchengka?title=离莞的师生需要48小时核酸,是否确定要跳转到行程卡'
+			})
+		} catch (e) {
+			// alert(e)
+		}
+	}
 
-$(function() {
+
+
+	function updateyuekangma() {
+
+		toast.show({
+			loading: true,
+			onShow: function() {
+
+			}
+		})
+
+
+	}
+
+	// function  shuaxin(){
+	// 	   window.location.href="https://wx.ccdgut.edu.cn/ccdgutwx//xiaoyuanma/wxpage.jsp";
+	//    }
+
+
+
+
+
+	$(function() {
+
+		 $(".oval").css("left",($(window).width()-100)/2+"px").css("top","20px");
 
 
 		$(".bar-body").css("left", ($(window).width() - $(".bar-body").width()) / 2 + "px");
@@ -254,103 +389,25 @@ $(function() {
 
 
 
+		 $("#mymessage").css("top", $(".oval  img").position().top + 155 + "px");
+
+
+
+
+
 		// $(".yuekangmadiv").height( $(window).height()/5 );
 
 	});
 
-	//  // $(".yuekangmadiv").height( $(window).height()/5 );
 
-	//  });
+
 
 	function shijiandiv() {
-		  $(".shijiandiv").html(  new Date().format('hh:mm:ss.S') );
-		// $(".shijiandiv").html(new Date().format('MM-dd hh:mm:ss'));
+		//  $(".shijiandiv").html(  new Date().format('hh:mm:ss S') );
+		$(".shijiandiv").html("<center>" + (new Date().format('hh:mm:ss.S')) +
+			"<br/><span style='color:white;background-color:#254257'>&nbsp;&nbsp;&nbsp;随机码&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;</span></center>"
+		);
 
 		setTimeout("shijiandiv()", 100);
 	}
-
-
-
-
-
-	// function  shuaxin(){
-	//  window.location.href="http://wx.ccdgut.edu.cn:80/ccdgutwx//xiaoyuanma/wxpage.jsp";
-	// }
 </script>
-
-
-
-<!-- 	<script type="text/javascript">
-			var obj = {
-				'url': '/pages/index/index',
-				'shareDesc': '智慧城院',
-				'shareImage': 'https://wx.ccdgut.edu.cn/ccdgutwx/xiaoyuanma/logo.png',
-				'shareTitle': '城院校园卡'
-			}
-			wx.miniProgram.postMessage({
-				data: obj
-			})
-			console.log(getUrlkey(window.location.href))
- 
-			// url参数解析
-			function getUrlkey(url) {
-				var params = {};
-				if(url.indexOf("?") != -1) {
-					var urls = url.split("?");
-					var arr = urls[1].split("&");
-					for(var i = 0, l = arr.length; i < l; i++) {
-						var a = arr[i].split("=");
-						params[a[0]] = a[1];
-					}
-				} else {}
-				return params;
-			}
-		</script>
-	  
-	  
-	  
-	
- <script>$(function(){    
-	                 // toast.show({ text:  '在该时间段没有找到你的离校申请，若需离校请先申请，有疑问请在企业号校园网应用内留言' ,   duration: 15000    });
-	                    
-	                  $.ajax({
-				                        		  url111:"http://wx.ccdgut.edu.cn:80/ccdgutwx//jinchuxiao/dy!updateLixiaoData.action?userid="
-				                        		  
-				                        	  })
-	                 
-	                  
-	                  
-			   });    
-	  </script> -->
-
-
-
-
-<!-- <script>
- 
- 
- 
- 
- function tohangchengka(){
- 
-	 try{ 
-	    wx.miniProgram.navigateTo({  url: '/pages/tohangchengka/tohangchengka?title=离莞的师生需要48小时核酸,是否确定要跳转到行程卡'}) 
-	   //alert(1)
-	   
-	   /*    wx.miniProgram.navigateToMiniProgram({
-	          appId: "wx8f446acf8c4a85f5",      
-	          path: "/pages/index"      
-	          }) */
-	    
-	   
-	    
-	 }catch(e){
-		// alert(e)
-	 }
-	 
- }
- </script>
- 
-	  
-	  
-	  -->
