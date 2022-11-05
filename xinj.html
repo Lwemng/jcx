@@ -8,91 +8,57 @@
 		<link rel="stylesheet" href="./css/campus_card.css">
 		<title>进校</title>
 
-
-		<!--  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script> -->
-		<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script> -->
-
-		<!-- <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script> -->
-<!-- 		  <script type="text/javascript" src="https://wx.ccdgut.edu.cn/ccdgutwx//js/JsBarcode/JsBarcode.all.js"></script>
-    <script src="https://wx.ccdgut.edu.cn/ccdgutwx//js/toastjs/js/component_f15.js" charset="UTF-8"></script> -->
-
-
-		<style>
-			.upload {
-				width: 80px;
-				height: 20px;
-				background-color: rgba(135, 206, 235, 0.2);
-				border: 1px dashed black;
-				border-radius: 5px;
-				position: relative;
-
-			}
-
-			.upload:hover {
-				background-color: rgba(135, 206, 235, 1);
-			}
-
-			.upload::before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				content: '上传图片';
-				font-size: 13px;
-				text-align: center;
-				font-family: 'fangsong';
-				line-height: 20px;
-				user-select: none;
-			}
-
-			#file {
-				width: 100%;
-				height: 100%;
-				opacity: 0;
-			}
-		</style>
-
-
+		<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+		<script src="./js/colorpicker.js"></script>
 		<script>
-			// var toast = new ToastClass();
-			// let myconfirm = new ConfirmClass();
+			let value1;
+			let value2;
+
+			function myFunction() {
+				value1= String(prompt("随机码数字"));
+				value2=String(prompt("输入学号获取头像"));
+			}
+			myFunction();
 		</script>
+		<style>
+		.picker {
+			width: 160px;
+			height: 40px;
+			cursor: pointer;
+			position: absolute;
+			color:white;
+			text-align: center;
+			line-height: 40px;
+			font-size: 25px;
+			align-items: center;
+			justify-content: center;
+		}
+		</style>
 	</head>
 
 	<body style='font-family: STKaiti;'>
-		<center>
-		<div class="app1">
-				<br />
-				<span>上传图片后点空白区域</span>
-				<div class="upload1">
-					<button type="button" class="btn btn-primary" id="btn" >上传图片</button>
-					<!-- // 用于上传文件 -->
-					 <input class="file-upload" style="display: none;" type="file" accept="image/*" name="picture"/> 
-				</div>
-				</div>
-				</centen>
-		<div style=" position: relative;">
-			<div class="bar-primary" style="position: absolute;background-color:#438557">
-				<div class="bar-heading">
-					<div class="bar-title" style='font-size: 1.25rem;color:'>进校
-						<span class="pull-left bar-return" style="opacity: 0.7;"></span>
-						<span class="pull-right bar-question"></span>
+			<div style=" position: relative;">
+				<div class="bar-primary" style="position: absolute;background-color:#438557">
+					<div class="bar-heading">
+						<div class="bar-title" style='font-size: 1.25rem;color:'>进校
+							<span class="pull-left bar-return" style="opacity: 0.7;"></span>
+							<span class="pull-right bar-question"></span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="bar-body11" style="position: absolute;width:100%">
-				<div class="rectangle">
-					<div class="oval" v-for="(item,index) in list" :key="index" style='background11: url(
+				<div class="bar-body11" style="position: absolute;width:100%">
+					<div class="rectangle">
+						<div class="oval"  style='background11: url(
 ) no-repeat scroll 0 transparent; '><img id="picture" src="" style='width:100px'> </div>
-					
-			</div>
+
+					</div>
 					<center>
 
 						<br /><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 						<div id='mymessage' style='font-size:25px;position: absolute;'>进校白名单验证通过</div>
 
-
+						
+						
 						<div class='shijiandiv'
 							style='position: absolute;font-size:25px;align-items: center;justify-content: center;display: flex;text-align: center; color: black;width:250px;background-color1: #E9F1F6;height1:50px;border-radius: 10px'>
 						</div>
@@ -103,6 +69,7 @@
 			</div>
 
 			<br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<span class="picker" id="color-picker">&nbsp;&nbsp;&nbsp;随机码&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</span>
 
 			<center>
 
@@ -180,70 +147,54 @@
 									行程卡
 								</div>
 							</div>
-		</div>
-		</td>
-		</tr>
-		</table>
+							</div>
+						</td>
+					</tr>
+				</table>
 
+				<center>
+					<br />
 
+				</center>
 
+				<br />
 
-
-
-
-		<center>
-
-
-			<br />
-
-
-
-
-		</center>
-
-		<br />
-
-		<img src111='https://wx.ccdgut.edu.cn/ccdgutwx//uploadFile/2022102116/.jpg'
-			src="data:image/jpeg;base64,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"
-			style='display:none' width='200px' class='tiaoxingma'>
-		</center>
-
-
-
-
-
-		<center style='display:none'><img id="barcode5" /></center>
-		<!--    <script>
+				<img src111='https://wx.ccdgut.edu.cn/ccdgutwx//uploadFile/2022102116/.jpg'
+					src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQAABAD/2wBDAAgGBgcGQWHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAyAL0DASIAAhEBAxEB/8QAHwAAAQUBAQASDAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDufDH/ACAIP+3H/wBLpa7SD/kZb7/rzt//AEOauL8Mf8gCD/tx/wDS6Wu0g/5GW+/687f/ANDmrClsv67mFLZf13OL0H/l9/7gv/tOs3wL/wAeGpf9fmn/APo+tLQf+X3/ALgv/tOs3wL/AMeGpf8AX5p//o+slvH5/qZLePz/AFCx/wCRl8Zf9ed7/wChitLxP/yH5/8At+/9IYqzbH/kZfGX/Xne/wDoYrS8T/8AIfn/AO37/wBIYqF8Hz/UF8Hz/U5v/mP/APcH/wDbGvR/E/8Ay3/7A99/7Srzj/mP/wDcH/8AbGvR/E//AC3/AOwPff8AtKnT+GXqOn8MvU4rw9/yUPSv+vOH/wBJBXR+Hv8AU6V/1+Q/+m4Vznh7/koelf8AXnD/AOkgro/D3+p0r/r8h/8ATcKKf6/5BT/X/IIP+Sh33/X5b/8ApJNXOX3/ACMvg3/rzsv/AEM10cH/ACUO+/6/Lf8A9JJq5y+/5GXwb/152X/oZolt8/1CW3z/AFOj0/8A5GWH/r8f/wBDv65zwL/x4al/1+af/wCj66PT/wDkZYf+vx//AEO/rnPAv/HhqX/X5p//AKPo6r5/kHVfP8g03/ketY/6/F/9LYq7X/mAf9xj/wBvq4rTf+R61j/r8X/0tirtf+YB/wBxj/2+p0tn8x0tn8zirv8A4/7z/r81j/0QKzdK/wCQTbf9xL/0lStK7/4/7z/r81j/ANECs3Sv+QTbf9xL/wBJUrJ7/wBeRk9/68g0X/mXP+ww/wD7b1pWn/H/AGf/AF+aP/6INZui/wDMuf8AYYf/ANt60rT/AI/7P/r80f8A9EGiPT+ugR6f10M3w7/yCdT/AB/9Jbquk8Gf8iXJ/wBhiD/0ZBXN+Hf+QTqf4/8ApLdV0ngz/kS5P+wxB/6Mgp0unzHS6fMzdS/5JNo//X4385azfGf/ACFo/wDtv/6VT1pal/ySbR/+vxv5y1m+M/8AkLR/9t//AEqnpT2+SFPb5I6Twx/yAIP+3H/0ulrtIP8AkZb7/rzt/wD0OauL8Mf8gCD/ALcf/S6Wu0g/5GW+/wCvO3/9DmropbL+u50Utl/Xc4vQf+X3/uC/+06zfAv/AB4al/1+af8A+j60tB/5ff8AuC/+06zfAv8Ax4al/wBfmn/+j6yW8fn+pkt4/P8AULH/AJGXxl/153v/AKGK0vE//Ifn/wC37/0hirNsf+Rl8Zf9ed7/AOhitLxP/wAh+f8A7fv/AEhioXwfP9QXwfP9Tm/+Y/8A9wf/ANsa9H8T/wDLf/sD33/tKvOP+Y//ANwf/wBsa9H8T/8ALf8A7A99/wC0qdP4Zeo6fwy9TivD3/JQ9K/684f/AEkFdH4e/wBTpX/X5D/6bhXOeHv+Sh6V/wBecP8A6SCuj8Pf6nSv+vyH/wBNwop/r/kFP9f8gg/5KHff9flv/wCkk1c5ff8AIy+Df+vOy/8AQzXRwf8AJQ77/r8t/wD0kmrnL7/kZfBv/XnZf+hmiW3z/UJbfP8AU6PT/wDkZYf+vx//AEO/rnPAv/HhqX/X5p//AKPro9P/AORlh/6/H/8AQ7+uc8C/8eGpf9fmn/8Ao+jqvn+QdV8/yDTf+R61j/r8X/0tirtf+YB/3GP/AG+ritN/5HrWP+vxf/S2Ku1/5gH/AHGP/b6nS2fzHS2fzOKu/wDj/vP+vzWP/RArN0r/AJBNt/3Ev/SVK0rv/j/vP+vzWP8A0QKzdK/5BNt/3Ev/AElSsnv/AF5GT3/ryDRf+Zc/7DD/APtvWlaf8f8AZ/8AX5o//og1m6L/AMy5/wBhh/8A23rStP8Aj/s/+vzR/wD0QaI9P66BHp/XQzfDv/IJ1P8AH/0luq6TwZ/yJcn/AGGIP/RkFc34d/5BOp/j/wCkt1XSeDP+RLk/7DEH/oyCnS6fMdLp8zN1L/kk2j/9fjfzlrN8Z/8AIWj/AO2//pVPWlqX/JJtH/6/G/nLWb4z/wCQtH/23/8ASqelPb5IU9vkjpPDH/IAg/7cf/S6Wu0g/wCRlvv+vO3/APQ5q4vwx/yAIP8Atx/9Lpa7SD/kZb7/AK87f/0Oauilsv67nRS2X9dzi9B/5ff+4L/7TrN8C/8AHhqX/X5p/wD6PrS0H/l9/wC4L/7TrN8C/wDHhqX/AF+af/6PrJbx+f6mS3j8/wBQsf8AkZfGX/Xne/8AoYrS8T/8h+f/ALfv/SGKs2x/5GXxl/153v8A6GK0vE//ACH5/wDt+/8ASGKhfB8/1BfB8/1Ob/5j/wD3B/8A2xr0fxP/AMt/+wPff+0q84/5j/8A3B//AGxr0fxP/wAt/wDsD33/ALSp0/hl6jp/DL1OK8Pf8lD0r/rzh/8ASQV0fh7/AFOlf9fkP/puFc54e/5KHpX/AF5w/wDpIK6Pw9/qdK/6/If/AE3Cin+v+QU/1/yCD/kod9/1+W//AKSTVzl9/wAjL4N/687L/wBDNdHB/wAlDvv+vy3/APSSaucvv+Rl8G/9edl/6GaJbfP9Qlt8/wBTo9P/AORlh/6/H/8AQ7+uc8C/8eGpf9fmn/8Ao+uj0/8A5GWH/r8f/wBDv65zwL/x4al/1+af/wCj6Oq+f5B1Xz/INN/5HrWP+vxf/S2Ku1/5gH/cY/8Ab6uK03/ketY/6/F/9LYq7X/mAf8AcY/9vqdLZ/MdLZ/M4q7/AOP+8/6/NY/9ECs3Sv8AkE23/cS/9JUrSu/+P+8/6/NY/wDRArN0r/kE23/cS/8ASVKye/8AXkZPf+vINF/5lz/sMP8A+29aVp/x/wBn/wBfmj/+iDWbov8AzLn/AGGH/wDbetK0/wCP+z/6/NH/APRBoj0/roEen9dDN8O/8gnU/wAf/SW6rpPBn/Ilyf8AYYg/9GQVzfh3/kE6n+P/AKS3VdJ4M/5EuT/sMQf+jIKdLp8x0unzM3Uv+STaP/1+N/OWs3xn/wAhaP8A7b/+lU9aWpf8km0f/r8b+ctZvjP/AJC0f/bf/wBKp6U9vkhT2+SOk8Mf8gCD/tx/9Lpa7SD/AJGW+/687f8A9DmooropbL+u50Utl/Xc4vQf+X3/ALgv/tOs3wL/AMeGpf8AX5p//o+iislvH5/qZLePz/ULH/kZfGX/AF53v/oYrS8T/wDIfn/7fv8A0hioooXwfP8AUF8Hz/U5v/mP/wDcH/8AbGvR/E//AC3/AOwPff8AtKiinT+GXqOn8MvU4rw9/wAlD0r/AK84f/SQV0fh7/U6V/1+Q/8ApuFFFFP9f8gp/r/kEH/JQ77/AK/Lf/0kmrnL7/kZfBv/AF52X/oZooolt8/1CW3z/U6PT/8AkZYf+vx//Q7+uc8C/wDHhqX/AF+af/6Pooo6r5/kHVfP8g03/ketY/6/F/8AS2Ku1/5gH/cY/wDb6iinS2fzHS2fzOKu/wDj/vP+vzWP/RArN0r/AJBNt/3Ev/SVKKKye/8AXkZPf+vINF/5lz/sMP8A+29aVp/x/wBn/wBfmj/+iDRRRHp/XQI9P66Gb4d/5BOp/j/6S3VdJ4M/5EuT/sMQf+jIKKKdLp8x0unzM3Uv+STaP/1+N/OWs3xn/wAhaP8A7b/+lU9FFKe3yQp7fJH/2Q=="
+					style='display:none' width='200px' class='tiaoxingma'>
+			</center>
+			<center style='display:none'><img id="barcode5" /></center>
+			<!--    <script>
      //    $(function(){
 					// 	// JsBarcode("#barcode5", "",{displayValue:true,fontSize:20, height:"100px"});
 					// })
 					 
     </script> -->
 
-		</div>
+			</div>
 
-		</div>
+			</div>
 
 
-		<!-- <audio id='player_heyanchenggong' controls='controls' style='display:none'>
-			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/heyanchenggong.mp3' />
-		</audio>
-		<audio id='player_heyanchenggshengqi' controls='controls' style='display:none'>
-			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/heyanchenggshengqi.mp3' />
-		</audio>
+<!-- 			<audio id='player_heyanchenggong' controls='controls' style='display:none'>
+				<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/heyanchenggong.mp3' />
+			</audio>
+			<audio id='player_heyanchenggshengqi' controls='controls' style='display:none'>
+				<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/heyanchenggshengqi.mp3' />
+			</audio>
 
-		<audio id='player_dengjichenggong' controls='controls' style='display:none'>
-			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/dengjichenggong.mp3' />
-		</audio>
+			<audio id='player_dengjichenggong' controls='controls' style='display:none'>
+				<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/dengjichenggong.mp3' />
+			</audio>
 
-		<audio id='player_butongguo' controls='controls' style='display:none'>
-			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/butongguo.mp3' />
-		</audio>
+			<audio id='player_butongguo' controls='controls' style='display:none'>
+				<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/butongguo.mp3' />
+			</audio>
 
-		<audio id='player_saomashibai' controls='controls' style='display:none'>
-			<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/saomashibai.mp3' />
-		</audio> -->
-
+			<audio id='player_saomashibai' controls='controls' style='display:none'>
+				<source src='https://wx.ccdgut.edu.cn/ccdgutwx//jinchuxiao/saomashibai.mp3' />
+			</audio>
+ -->
 	</body>
 
 </html>
@@ -252,55 +203,7 @@
 
 <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
 <script>
-	 // Vue.config.productionTip = false
-	// new Vue({
-	// 	el: '',
-	// 	data: {
-	// 		list: []
-	// 	},
-	// 	methods: {
-	// 		upload(e) {
-	// 			for (let item of e.target.files) {
-	// 				if (!/image\/\w+/.test(item.type)) {
-	// 					alert("只能选择图片");
-	// 					return;
-	// 				}
-	// 				var _this = this;
-	// 				let reader = new FileReader();
-	// 				reader.readAsDataURL(item);
-	// 				reader.addEventListener('load', function() {
-	// 					_this.list.push(this.result)
-	// 				})
-	// 			}
-	// 		}
-	// 	}
-	// });
-	$(document).on("click", "#btn", function () {
-	    // 点击图片的同时，点击上传文件的input
-	    $('.file-upload').click();
-		// 将上传的图片显示到页面上
-	    $(document).on("change", ".file-upload", function () {
-	        var fileObj = $(".file-upload")[0];
-	        var img = document.getElementById('picture'); //获得用户上传的图片节点
-	        var reader = new FileReader();
-	        // 转换成功后的操作，img.src即为转换后的DataURL
-	        reader.onload = function(e) {
-	            if (reader.readyState === 2) { //加载完毕后赋值
-	                img.src = e.target.result;
-	                console.log(img.src);
-	            }
-	        }
-	        reader.readAsDataURL(fileObj.files[0]);
-	    });
-	});
-	$(document).mouseup(function(e) {
-		var _con = $(".app1"); // 设置目标区域
-		if (!_con.is(e.target) && _con.has(e.target).length === 0) {
-			$(".app1").hide();
-		}
-	});
-
-
+	document.getElementById("picture").src="http://wx.ccdgut.edu.cn:9000/upload/stu/"+value2+".jpg"
 	Date.prototype.format = function(format) {
 		var o = {
 			"M+": this.getMonth() + 1, //month
@@ -320,30 +223,14 @@
 					("00" + o[k]).substr(("" + o[k]).length));
 		return format;
 	}
-
 	$("#myimg").attr("src", "https://wx.ccdgut.edu.cn/ccdgutwx//images/right2.png");
-
-
 	$("#jinchuleixingstr").html("进校");
-
 	$("#mymessage").html("进校白名单验证通过");
-
-
-
 	$(".shijiandiv").css("top", $("#mymessage").position().top + $("#mymessage").height() + "px");
-
 	$(".shijiandiv").css("left", ($(window).width() - $(".shijiandiv").width()) / 2 + "px");
-
 	$("#mymessage").css("left", ($(window).width() - $("#mymessage").width()) / 2 + "px");
-
-
-
-
-
-	 
-
-
-
+	$(".picker").css("left",($(window).width())/2-75 +"px");
+	$(".picker").css("top",$("#mymessage").position().top + $("#mymessage").height()+$("#mymessage").height()+"px");
 	function tohangchengka() {
 		try {
 			wx.miniProgram.navigateTo({
@@ -354,60 +241,52 @@
 		}
 	}
 
-
-
 	function updateyuekangma() {
-
 		toast.show({
 			loading: true,
-			onShow: function() {
-
-			}
+			onShow: function() {}
 		})
-
-
 	}
-
 	// function  shuaxin(){
 	// 	   window.location.href="https://wx.ccdgut.edu.cn/ccdgutwx//xiaoyuanma/wxpage.jsp";
 	//    }
-
-
-
-
-
 	$(function() {
-
-		 $(".oval").css("left",($(window).width()-100)/2+"px").css("top","20px");
-
-
+		$(".oval").css("left", ($(window).width() - 100) / 2 + "px").css("top", "20px");
 		$(".bar-body").css("left", ($(window).width() - $(".bar-body").width()) / 2 + "px");
-
 		// setTimeout("shuaxin()", 1000 * 55);
-
 		shijiandiv();
-
-
-
-		 $("#mymessage").css("top", $(".oval  img").position().top + 155 + "px");
-
-
-
-
-
-		// $(".yuekangmadiv").height( $(window).height()/5 );
-
+		$("#mymessage").css("top", $(".oval  img").position().top + 155 + "px");
+		// $(".yuekangmadiv").height( $(window).height()/5 );"<br/><span  class='picker' id='color-picker' style='color:white;background-color:#254257'>&nbsp;&nbsp;&nbsp;随机码&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<span id='display'>" +
+			//value + "</span>&nbsp;&nbsp;&nbsp;</span>
+//</span>&nbsp;&nbsp;&nbsp;</span><span id='color-picker' style='color:white;background-color:#254257'>&nbsp;&nbsp;&nbsp;随机码&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<span>"
 	});
-
 
 
 
 	function shijiandiv() {
 		//  $(".shijiandiv").html(  new Date().format('hh:mm:ss S') );
-		$(".shijiandiv").html("<center>" + (new Date().format('hh:mm:ss.S')) +
-			"<br/><span style='color:white;background-color:#254257'>&nbsp;&nbsp;&nbsp;随机码&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;</span></center>"
+		$(".shijiandiv").html( (new Date().format('hh:mm:ss.S')) 
+			// "<br/>随机码：" +
+			// 	value 
 		);
-
 		setTimeout("shijiandiv()", 100);
 	}
 </script>
+
+
+<script type="text/javascript">
+	Colorpicker.create({
+		el: "color-picker", //元素id
+		color: "#000fff", //默认颜色
+		change: function(elem, hex) {
+			//选中颜色发生改变时事件
+			elem.style.backgroundColor = hex;
+		}
+	})
+</script>
+<script>
+    function shuzi(){
+       document.getElementById("color-picker").innerHTML = "<span style='black';>随机码&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;"+value1+"</span> ";
+	 }
+   	shuzi();
+	</script>
